@@ -44,6 +44,13 @@ pipeline {
       steps {
         echo "Deploying the code to the ${env.PRODUCTION_ENVIRONMENT} environment"
       }
+      post {
+        success {
+          mail to: "akshatarora028@gmail.com",
+          subject: "Build and deployment successful!",
+          message: "Build and deployment to production was successful."
+        }
+      }
     }
   }
 }
